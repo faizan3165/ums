@@ -1,0 +1,44 @@
+<h1>All Users</h1>
+
+<a href="/create" class="btn btn-primary my-2">Create New User</a>
+
+<div class="table-scrollable">
+    <table class="m-auto table table-striped table-hover table-responsive table-bordered text-center">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each users}}
+            <tr>
+                <th scope="row">{{this.id}}</th>
+
+                <td>{{this.firstName}}</td>
+
+                <td>{{this.lastName}}</td>
+
+                <td>{{this.email}}</td>
+
+                <td>{{this.phoneNumber}}</td>
+
+                <td class="d-flex justify-content-between">
+                    <a href="/user/{{this.id}}" class="btn btn-primary">View</a>
+
+                    <a href="/edit/{{this.id}}" class="btn btn-warning">Edit</a>
+
+                    <form action="/delete/{{this.id}}" method="POST">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
